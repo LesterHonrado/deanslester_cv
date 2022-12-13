@@ -35,7 +35,8 @@ class _MainPageState extends StatelessWidget {
             CircleAvatar(
               radius:100.0,
               backgroundColor: Colors.green[300],
-              backgroundImage: AssetImage('images/h'),
+              backgroundImage: AssetImage('images/'
+                  ''),
             ),
             const Text(
               ' Click Proceed to continue. ' ,
