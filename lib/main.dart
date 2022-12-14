@@ -1,20 +1,20 @@
+
 import 'package:flutter/material.dart';
 
-void main() {
+void main(){
   runApp(MaterialApp(
     initialRoute: '/',
     routes: {
       '/': (context) => _MainPageState(),
-      '/second': (context) => const SecondRoute(),
+      '/second': (context) => SecondRoute(),
       '/third': (context) => const ThirdRoute(),
       '/fourth': (context) => const FourthRoute(),
-      '/fifth': (context) => const LoginForm(),
+      '/fifth' : (context) => const LoginForm(),
     },
   )); //MaterialApp
 }
 
-
-
+// ignore: must_be_immutable
 class _MainPageState extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   String email = '';
@@ -35,8 +35,7 @@ class _MainPageState extends StatelessWidget {
             CircleAvatar(
               radius:100.0,
               backgroundColor: Colors.green[300],
-              backgroundImage: AssetImage('images/'
-                  ''),
+              backgroundImage: AssetImage('images/p.jpg'),
             ),
             const Text(
               ' Click Proceed to continue. ' ,
@@ -98,10 +97,10 @@ class _LoginFormState extends State<LoginForm> {
               padding: const EdgeInsets.only(top: 60.0),
               child: Center(
                 child: Container(
-                  width: 400,
-                  height: 200,
+                  width: 100,
+                  height: 100,
                   child: Image.asset(
-                    'assets/images/secured.gif',
+                    'images/w.png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -115,7 +114,7 @@ class _LoginFormState extends State<LoginForm> {
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               child: TextField(
                 controller: uname,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'User Name',
                     hintText: 'Please Enter User Name'),
@@ -142,7 +141,7 @@ class _LoginFormState extends State<LoginForm> {
               height: 50,
               width: 250,
               decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.deepPurpleAccent,
                   borderRadius: BorderRadius.circular(20.0)),
               child: TextButton(
                 child: Text(
@@ -162,7 +161,7 @@ class _LoginFormState extends State<LoginForm> {
                     print('Please Enter Password');
 
                   } else {
-                    if (_name == 'admin' && _paswd == 'admin') {
+                    if (_name == 'Lester' && _paswd == 'lester') {
                       Navigator.pushNamed(context, '/second');
                     } else {
                       print('Login Fail');
@@ -178,125 +177,116 @@ class _LoginFormState extends State<LoginForm> {
   }
 }
 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({key}) : super(key: key);
+// ignore: must_be_immutable
+class SecondRoute extends StatefulWidget {
+  final formKey = GlobalKey<FormState>();
+  String email = '';
+  String password = '';
 
+  @override
+  State<SecondRoute> createState() => _SecondRouteState();
+}
+
+class _SecondRouteState extends State<SecondRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Curriculum Vitae'),
-        backgroundColor: Colors.black,
+          title: const Text('Curriculum Vitae'),
+          backgroundColor: Colors.deepPurpleAccent
       ), // AppBar
       body: SafeArea(
         child: Column(
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const CircleAvatar(
-              radius: 50.0,
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage('images/dope.jpg'),
+            CircleAvatar(
+              radius: 90.0,
+              backgroundColor: Colors.green[200],
+              backgroundImage: AssetImage('images/q.jpg'),
             ),
-            const Text(
-              'LESTER HONRADO',
+            Text(
+              'Lester Honrado',
               style: TextStyle(
-                fontFamily: 'McLaren',
-                fontSize: 40.0,
+                fontFamily: 'Pacifico',
+                fontSize: 25.0,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Text(
-              'IT',
+            Text(
+              'BS in Information Technology',
               style: TextStyle(
-                fontFamily: 'Payton One',
+                fontFamily: 'Lobster',
                 color: Colors.black,
-                fontSize: 20.0,
+                fontSize: 15.0,
                 letterSpacing: 2.5,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
               ),
             ),
 
-            const SizedBox(
-              height: 50.0,
-              width: 500.0,
+            SizedBox(
+              height: 20.0,
+              width: 150.0,
               child: Divider(
-                color: Colors.black,
+                color: Colors.teal.shade100,
               ),
             ),
-            const Card(
-                margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.phone,
-                    color: Colors.black,
-                  ),
-                  title: Text(
-                    '+639634723955',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Balsamic Sans',
-                      fontSize: 20.0,
-                    ),
-                  ),
-                )),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+
+
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 110.0),
               child: ListTile(
-                leading: Icon(
-                  Icons.email,
-                  color: Colors.black,
-                ),
                 title: Text(
-                  'honradocastro12@gmail.com',
+                  'CREDENTIALS',
                   style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.black,
-                      fontFamily: 'Source Sans 3'),
+                      fontFamily: 'Acme'),
                 ),
 
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
-              child: ListTile(
-                leading: Icon(
-                  Icons.house,
-                  color: Colors.black,
-                ),
-                title: Text(
-                  'Calit Binmaley, Pangasinan',
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontFamily: 'Source Sans 3'),
-                ),
-
-              ),
-            ),
-            ElevatedButton(
+            ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)),// foreground
+// foreground
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
+                ),
               ),
-              child: const Text('Educational Background'),
+              icon: Icon(Icons.account_tree_outlined),
+              label: Text('Educational Background'),
               onPressed: () {
                 Navigator.pushNamed(context, '/third');
               },
             ), // ElevatedButton
-            ElevatedButton(
+            ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
 
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50)), // foreground
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
+                ),
               ),
-              child: const Text('Background'),
+              icon: Icon(Icons.info_outline),
+              label: Text('About Me'),
               onPressed: () {
                 Navigator.pushNamed(context, '/fourth');
               },
             ),
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
+                ),
+              ),
+              icon: Icon(Icons.home),
+              label: Text('Home'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
+            ),
+
           ],
 
         ),
@@ -314,21 +304,26 @@ class ThirdRoute extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Education"),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.deepPurpleAccent,
       ), // AppBar
       body: Center(
         child: Column(
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            CircleAvatar(
+              radius: 50.0,
+              backgroundImage: AssetImage('images/DL.png'),
+            ),
             SizedBox(
-              height: 5.0,
-              width: 150.0,
+              height: 15.0,
+              width: 100.0,
               child: Divider(
                 color: Colors.black,
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
               child: ListTile(
                 leading: Icon(
                   Icons.school,
@@ -338,23 +333,22 @@ class ThirdRoute extends StatelessWidget {
                   'Tertiary Education ',
                   style: TextStyle(
                     color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Orbitron',
                     fontSize: 20.0,
                   ),
                 ),
-                subtitle: Text('Philippine College of Science and Technology'
+                subtitle: Text('College'
                 ),
 
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
               child: ListTile(
                 title: Text(
-                  'College',
+                  'Philippine College of Science and Technology',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Acme',
                     fontSize: 20.0,
                   ),
                 ),
@@ -363,8 +357,8 @@ class ThirdRoute extends StatelessWidget {
 
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
               child: ListTile(
                 leading: Icon(
                   Icons.school,
@@ -375,19 +369,20 @@ class ThirdRoute extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.black,
-                      fontFamily: 'Source Sans 3'),
+                      fontFamily: 'Orbitron'),
+                ),
+                subtitle: Text('Junior High School & Senior High School'
                 ),
 
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
               child: ListTile(
                 title: Text(
-                  'Lyceum-Northwestern University',
+                  '********',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Acme',
                     fontSize: 20.0,
                   ),
                 ),
@@ -396,14 +391,13 @@ class ThirdRoute extends StatelessWidget {
 
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
               child: ListTile(
                 title: Text(
-                  'Camaley National High School',
+                  '********',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Acme',
                     fontSize: 20.0,
                   ),
                 ),
@@ -411,8 +405,8 @@ class ThirdRoute extends StatelessWidget {
                 ),
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
               child: ListTile(
                 leading: Icon(
                   Icons.school,
@@ -423,22 +417,21 @@ class ThirdRoute extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.black,
-                      fontFamily: 'Source Sans 3'),
+                      fontFamily: 'Orbitron'),
                 ),
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
               child: ListTile(
                 title: Text(
-                  'Calit Elementary School',
+                  '********',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Acme',
                     fontSize: 20.0,
                   ),
                 ),
-                subtitle: Text('2006-2012'
+                subtitle: Text('Year Graduated: 2012'
                 ),
               ),
             ),
@@ -453,143 +446,109 @@ class ThirdRoute extends StatelessWidget {
 class FourthRoute extends StatelessWidget {
   const FourthRoute({key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Education"),
-        backgroundColor: Colors.black,
-      ), // AppBar
+        title: const Text("Professional Background"),
+        backgroundColor: Colors.deepPurpleAccent,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              height: 20.0,
-              width: 150.0,
-              child: Divider(
-                color: Colors.black,
-              ),
+            CircleAvatar(
+              radius: 80.0,
+              backgroundColor: Colors.green[200],
+              backgroundImage: AssetImage('images/DL.png'),
             ),
-            const Card(
+            Card(
               margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
               child: ListTile(
                 leading: Icon(
-                  Icons.school,
+                  Icons.account_circle,
                   color: Colors.black,
                 ),
                 title: Text(
-                  'Tertiary Education ',
+                  "Professional Summary",
                   style: TextStyle(
                     color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Lobster',
                     fontSize: 20.0,
                   ),
                 ),
-                subtitle: Text('Philippine College of Science and Technology'
+                subtitle: Text("A highly motivated and freshly graduated  out of college. I am skilled in a variety of programming languages and have a strong background in object-oriented programming and software development. My greatest strengths in my ability is to solve complex problems quickly and effectively.", textAlign: TextAlign.justify,
+
                 ),
 
               ),
             ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
-              child: ListTile(
-                title: Text(
-                  'College',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Source Sans 3',
-                    fontSize: 20.0,
-                  ),
-                ),
-                subtitle: Text('Bachelor of Science in Information Technology 2020-2024'
-                ),
-
-              ),
-            ),
-            const Card(
+            Card(
               margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
               child: ListTile(
                 leading: Icon(
-                  Icons.school,
+                  Icons.add_task_rounded,
                   color: Colors.black,
                 ),
                 title: Text(
-                  'Secondary Education',
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontFamily: 'Source Sans 3'),
-                ),
-
-              ),
-            ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
-              child: ListTile(
-                title: Text(
-                  'Lyceum-Northwestern University',
+                  'Skills',
                   style: TextStyle(
                     color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Lobster',
                     fontSize: 20.0,
                   ),
                 ),
-                subtitle: Text('Senior High School 2018-2020'
-                ),
-
-              ),
-            ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
-              child: ListTile(
-                title: Text(
-                  'Camaley National High School',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Source Sans 3',
-                    fontSize: 20.0,
-                  ),
-                ),
-                subtitle: Text('Junior High School 2012-2018'
+                subtitle: Text("HTML, CSS, JAVASCRIPT, PHP, SQL & PYTHON "
                 ),
               ),
             ),
-            const Card(
+            Card(
               margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
               child: ListTile(
                 leading: Icon(
-                  Icons.school,
+                  Icons.build_sharp,
                   color: Colors.black,
                 ),
                 title: Text(
-                  'Primary Education',
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontFamily: 'Source Sans 3'),
-                ),
-              ),
-            ),
-            const Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
-              child: ListTile(
-                title: Text(
-                  'Calit Elementary School',
+                  'Web-Development',
                   style: TextStyle(
                     color: Colors.black,
-                    fontFamily: 'Source Sans 3',
+                    fontFamily: 'Lobster',
                     fontSize: 20.0,
                   ),
                 ),
-                subtitle: Text('2016-2012'
+                subtitle: Text("I am web-developer way back before when I was in college."
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.cast_for_education,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'Certificates',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Lobster',
+                    fontSize: 20.0,
+                  ),
+                ),
+                subtitle: Text("NCII Computer System Servicing "
                 ),
               ),
             ),
           ],
 
         ),
-      ), // Center
+      ), /// AppBar
+
     ); // Scaffold
   }
 }
+
+
+

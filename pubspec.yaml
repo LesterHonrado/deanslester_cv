@@ -25,7 +25,11 @@ flutter:
 
   assets:
     - images/dope.jpg
-
+    - images/DL.png
+    - images/insert.png
+    - images/p.jpg
+    - images/q.jpg
+    - images/w.png
 fonts:
 - family: McLaren
   fonts:
